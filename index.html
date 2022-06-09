@@ -1,0 +1,55 @@
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="images/index.css"> 
+    <title>水果忍者网页体感版</title>
+    <!-- Load TensorFlow.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.7"></script> -->
+    <script src="/posenet_fruit_ninja/@tensorflow/tfjs@0.13.1.js"></script>
+    <!-- Load Posenet -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/posenet@0.1.2"></script> -->
+    <script src="/posenet_fruit_ninja/tfjs-models/posenet@0.2.3.js"></script>
+ </head>
+
+  <body>
+    <div style="width:100%;position:fixed;text-align:center;color:#ffffff;">
+        <p>保证摄像头处于未禁用状态，正对摄像头站立，保证左上角摄像头窗口可看见你的上半身，挥舞手臂，划掉New Game。</p>
+        <p>挥舞你的手！挥舞你的手！挥舞你的手！</p>
+    </div>
+    <div id="extra"></div>
+    <canvas id="view" width="640" height="480"></canvas>
+    <div id="desc">
+        <div id="browser"></div>
+    </div>
+    <div id="posenet" style="">
+      <!-- <div id="loading"></div> -->
+      
+      <div id="main" style="display:none;z-index:99999999;">
+        <div style="width:160px; padding:4px; background-color: #ffffff;">
+          <form>
+            <label><input type="radio" name="hand" value="left"/>左手</label>
+            <label><input type="radio" name="hand" value="right" checked="checked"/>右手</label>
+          </form>
+          <div style="position: relative;">
+            <video id="video" playsinline style=" -moz-transform: scaleX(-1);
+                -o-transform: scaleX(-1);
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);
+                display: block;
+                width: 160px;
+                height: 120px;
+                ">
+            </video>
+            <canvas id="output_mini" width="160" height="120" style="display: block;position: absolute;top:0;"/>
+          </div>
+          <button id="clear" type="button" style="width:160px;height:30px;">清除轨迹</button>
+        </div>
+        <canvas id="output"/>
+      </div>
+    </div>
+    <div id="info" style="font-size:12pt;color:#ffffff;"></div>
+  </body>
+  <script src="scripts/pose.js"></script>
+  <script src="scripts/all.js"></script>
+  <a href="https://github.com/huhai463127310/posenet_fruit_ninja" style="position:fixed;top:0;right:0"><img width="149" height="149" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+</html>
